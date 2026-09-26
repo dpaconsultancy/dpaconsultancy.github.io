@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  document.documentElement.classList.add('js');
+  const t = (key) => window.DPA_I18N.t(key);
 
   /* ---------- Nav: scroll state + mobile menu ---------- */
   const nav = document.getElementById('nav');
@@ -14,13 +14,13 @@
   const setMenu = (open) => {
     nav.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    toggle.setAttribute('aria-label', t(open ? 'ui.menuClose' : 'ui.menuOpen'));
     document.body.style.overflow = open ? 'hidden' : '';
   };
   toggle.addEventListener('click', () => setMenu(!nav.classList.contains('is-open')));
   links.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
-  window.matchMedia('(min-width: 881px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
+  window.matchMedia('(min-width: 1101px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
 
   /* ---------- Reveal on scroll ---------- */
   const revealEls = document.querySelectorAll('.reveal');
@@ -47,15 +47,23 @@
   const form = document.getElementById('bookingForm');
   const status = document.getElementById('formStatus');
   const submitBtn = document.getElementById('submitBtn');
+  const submitLabel = document.getElementById('submitLabel');
   const dateInput = document.getElementById('preferredDate');
 
   const tomorrow = new Date(Date.now() + 864e5);
   dateInput.min = tomorrow.toISOString().split('T')[0];
 
-  const setStatus = (msg, type) => {
-    status.textContent = msg;
+  // Status is stored as a key so it re-translates if the language changes.
+  let statusKey = null;
+  const setStatus = (key, type) => {
+    statusKey = key;
+    status.textContent = key ? t(key) : '';
     status.className = `form__status${type ? ` is-${type}` : ''}`;
   };
+  window.DPA_I18N.onChange(() => {
+    if (statusKey) status.textContent = t(statusKey);
+    toggle.setAttribute('aria-label', t(nav.classList.contains('is-open') ? 'ui.menuClose' : 'ui.menuOpen'));
+  });
 
   const validate = () => {
     let firstInvalid = null;
@@ -79,7 +87,7 @@
     setStatus('', null);
 
     if (!validate()) {
-      setStatus('Please complete the highlighted fields.', 'error');
+      setStatus('f.invalid', 'error');
       return;
     }
     if (form._honey.value) return; // bot
@@ -93,23 +101,23 @@
     data.set('_replyto', data.get('email'));
     data.set('_template', 'table');
     data.set('_captcha', 'false');
+    data.set('language', window.DPA_I18N.lang.toUpperCase());
 
     submitBtn.disabled = true;
-    const label = submitBtn.firstChild.textContent;
-    submitBtn.firstChild.textContent = 'Sending… ';
+    submitLabel.textContent = t('f.sending');
 
     try {
       const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
       const json = await res.json().catch(() => ({}));
       if (!res.ok || String(json.success) === 'false') throw new Error(json.message || `HTTP ${res.status}`);
       form.reset();
-      setStatus('Thank you. Your request has been received and our team will be in touch shortly to schedule your consultation.', 'success');
+      setStatus('f.success', 'success');
     } catch (err) {
       console.error('[DPA] Booking submit failed:', err);
-      setStatus('Something went wrong sending your request. Please try again, or email us at dpaconsultancy.tjon@gmail.com.', 'error');
+      setStatus('f.error', 'error');
     } finally {
       submitBtn.disabled = false;
-      submitBtn.firstChild.textContent = label;
+      submitLabel.textContent = t('f.submit');
     }
   });
 })();

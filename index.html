@@ -12,6 +12,9 @@
   <meta property="og:url" content="https://dpaconsultancy.github.io/">
   <meta property="og:image" content="https://dpaconsultancy.github.io/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="en" href="https://dpaconsultancy.github.io/?lang=en">
+  <link rel="alternate" hreflang="nl" href="https://dpaconsultancy.github.io/?lang=nl">
+  <link rel="alternate" hreflang="es" href="https://dpaconsultancy.github.io/?lang=es">
   <link rel="icon" href="assets/favicon-64.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +22,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add('js')</script>
+  <script src="i18n.js"></script>
 </head>
 <body>
 
@@ -30,15 +34,22 @@
         <span class="brand__text">DPA <span>Consultancy</span></span>
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#clients">Who We Serve</a>
-        <a href="#services">Services</a>
-        <a href="#reach">Regional Reach</a>
-        <a href="#contact" class="btn btn--sm btn--gold">Book a Consultation</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#clients" data-i18n="nav.clients">Who We Serve</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#reach" data-i18n="nav.reach">Regional Reach</a>
+        <a href="#contact" class="btn btn--sm btn--gold" data-i18n="cta.book">Book a Consultation</a>
       </nav>
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span>
-      </button>
+      <div class="nav__end">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true" lang="en" title="English">EN</button>
+          <button type="button" data-lang="nl" aria-pressed="false" lang="nl" title="Nederlands">NL</button>
+          <button type="button" data-lang="es" aria-pressed="false" lang="es" title="Español">ES</button>
+        </div>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -49,27 +60,27 @@
       <div class="hero__glow" aria-hidden="true"></div>
       <div class="hero__grid" aria-hidden="true"></div>
       <div class="container hero__inner">
-        <p class="eyebrow reveal">Est. 2024 &middot; Paramaribo, Suriname</p>
+        <p class="eyebrow reveal" data-i18n="hero.eyebrow">Est. 2024 &middot; Paramaribo, Suriname</p>
         <h1 class="hero__title reveal">
           DPA Consultancy
           <span class="hero__acronym"><em>D</em>evelopment, <em>P</em>lanning &amp; <em>A</em>ction</span>
         </h1>
-        <p class="hero__motto reveal">&ldquo;Servizio Senza Fine&rdquo; <span>&mdash; Service without an end</span></p>
-        <p class="hero__lead reveal">
+        <p class="hero__motto reveal">&ldquo;Servizio Senza Fine&rdquo; <span data-i18n="hero.motto">&mdash; Service without an end</span></p>
+        <p class="hero__lead reveal" data-i18n="hero.lead">
           A long-term business partner for ambitious companies across the Caribbean, South America and the United States.
           We build the strategy with you, and we stay to carry it out.
         </p>
         <div class="hero__cta reveal">
-          <a href="#contact" class="btn btn--gold btn--lg">Book a Consultation
+          <a href="#contact" class="btn btn--gold btn--lg"><span data-i18n="cta.book">Book a Consultation</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a href="#services" class="btn btn--ghost btn--lg">Explore our practices</a>
+          <a href="#services" class="btn btn--ghost btn--lg" data-i18n="hero.explore">Explore our practices</a>
         </div>
         <dl class="hero__stats reveal">
-          <div><dt>8</dt><dd>Consulting practices</dd></div>
-          <div><dt>6</dt><dd>Markets served</dd></div>
-          <div><dt>3</dt><dd>Client stages</dd></div>
-          <div><dt>&infin;</dt><dd>Partnership horizon</dd></div>
+          <div><dt>8</dt><dd data-i18n="stats.practices">Consulting practices</dd></div>
+          <div><dt>6</dt><dd data-i18n="stats.markets">Markets served</dd></div>
+          <div><dt>3</dt><dd data-i18n="stats.stages">Client stages</dd></div>
+          <div><dt>&infin;</dt><dd data-i18n="stats.horizon">Partnership horizon</dd></div>
         </dl>
       </div>
     </section>
@@ -78,32 +89,32 @@
     <section class="section" id="about">
       <div class="container about">
         <div class="about__head">
-          <p class="eyebrow reveal">Our Story</p>
-          <h2 class="section__title reveal">Founded in Suriname.<br>Built for the region.</h2>
+          <p class="eyebrow reveal" data-i18n="about.eyebrow">Our Story</p>
+          <h2 class="section__title reveal" data-i18n="about.title">Founded in Suriname.<br>Built for the region.</h2>
           <blockquote class="about__quote reveal">
             <span class="about__quote-mark">&ldquo;</span>
-            A plan is only the beginning. We stay with our clients from the first strategy session to execution and beyond.
+            <span data-i18n="about.quote">A plan is only the beginning. We stay with our clients from the first strategy session to execution and beyond.</span>
             <cite>Servizio Senza Fine</cite>
           </blockquote>
         </div>
         <div class="about__body">
-          <p class="reveal">
+          <p class="reveal" data-i18n="about.p1">
             DPA Consultancy was founded in Paramaribo in 2024 with a clear conviction: businesses in the Caribbean and
             South America deserve advisory work that meets international standards while understanding local realities.
             Within our first year we grew beyond Suriname into Guyana, French Guiana, Brazil, the CARICOM member islands
             and states, and the United States. Clients there wanted a partner who understood both their home market and the corridors
             they were trying to reach.
           </p>
-          <p class="reveal">
+          <p class="reveal" data-i18n="about.p2">
             Our name sets out our method: <strong>Development, Planning &amp; Action</strong>. Our ethos is
             <em>Servizio Senza Fine</em>, &ldquo;service without an end.&rdquo; Many consultancies hand over a report and move on.
             We stay. We work alongside leadership teams through implementation, measure what changes, and adjust as markets move.
             We do not treat an engagement as finished when the plan is delivered. For us, that is where the partnership starts.
           </p>
           <ul class="pillars reveal">
-            <li><span>01</span><div><strong>Development</strong>Build the foundations: structure, systems and people.</div></li>
-            <li><span>02</span><div><strong>Planning</strong>Chart the route: strategy, finance and market entry.</div></li>
-            <li><span>03</span><div><strong>Action</strong>Execute and iterate: implementation with continuous support.</div></li>
+            <li><span>01</span><div><strong>Development</strong><span data-i18n="pillar.dev">Build the foundations: structure, systems and people.</span></div></li>
+            <li><span>02</span><div><strong>Planning</strong><span data-i18n="pillar.plan">Chart the route: strategy, finance and market entry.</span></div></li>
+            <li><span>03</span><div><strong>Action</strong><span data-i18n="pillar.act">Execute and iterate: implementation with continuous support.</span></div></li>
           </ul>
         </div>
       </div>
@@ -113,42 +124,42 @@
     <section class="section section--alt" id="clients">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow reveal">Who We Serve</p>
-          <h2 class="section__title reveal">Three stages of business.<br>One committed partner.</h2>
-          <p class="section__lead reveal">Whether you are launching, recovering or expanding, we adapt our approach to where your business is today and where it needs to go next.</p>
+          <p class="eyebrow reveal" data-i18n="nav.clients">Who We Serve</p>
+          <h2 class="section__title reveal" data-i18n="clients.title">Three stages of business.<br>One committed partner.</h2>
+          <p class="section__lead reveal" data-i18n="clients.lead">Whether you are launching, recovering or expanding, we adapt our approach to where your business is today and where it needs to go next.</p>
         </div>
         <div class="clients">
           <article class="client reveal">
             <div class="client__icon"><svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
-            <p class="client__tag">Launch</p>
-            <h3>High-Impact Startups</h3>
-            <p>We help new ventures build scalable, market-ready foundations: validated business models, investor-grade planning, lean operations and a brand that earns trust from day one.</p>
+            <p class="client__tag" data-i18n="c1.tag">Launch</p>
+            <h3 data-i18n="c1.title">High-Impact Startups</h3>
+            <p data-i18n="c1.body">We help new ventures build scalable, market-ready foundations: validated business models, investor-grade planning, lean operations and a brand that earns trust from day one.</p>
             <ul>
-              <li>Business model &amp; go-to-market design</li>
-              <li>Financial modeling &amp; capital readiness</li>
-              <li>Systems and structure that scale</li>
+              <li data-i18n="c1.l1">Business model &amp; go-to-market design</li>
+              <li data-i18n="c1.l2">Financial modeling &amp; capital readiness</li>
+              <li data-i18n="c1.l3">Systems and structure that scale</li>
             </ul>
           </article>
           <article class="client client--featured reveal">
             <div class="client__icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
-            <p class="client__tag">Turnaround</p>
-            <h3>Struggling Enterprises</h3>
-            <p>When margins shrink or operations stall, we diagnose the root causes and lead a structured turnaround. The goal is to restore profitability, cash flow and team confidence.</p>
+            <p class="client__tag" data-i18n="c2.tag">Turnaround</p>
+            <h3 data-i18n="c2.title">Struggling Enterprises</h3>
+            <p data-i18n="c2.body">When margins shrink or operations stall, we diagnose the root causes and lead a structured turnaround. The goal is to restore profitability, cash flow and team confidence.</p>
             <ul>
-              <li>Turnaround strategy &amp; restructuring</li>
-              <li>Operational efficiency &amp; cost control</li>
-              <li>Profit and cash-flow restoration</li>
+              <li data-i18n="c2.l1">Turnaround strategy &amp; restructuring</li>
+              <li data-i18n="c2.l2">Operational efficiency &amp; cost control</li>
+              <li data-i18n="c2.l3">Profit and cash-flow restoration</li>
             </ul>
           </article>
           <article class="client reveal">
             <div class="client__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-            <p class="client__tag">Expansion</p>
-            <h3>Cross-Border Growth</h3>
-            <p>We guide established companies into new markets, including the United States, Brazil, French Guiana and the CARICOM states. That covers regulatory, commercial and operational entry planning.</p>
+            <p class="client__tag" data-i18n="c3.tag">Expansion</p>
+            <h3 data-i18n="c3.title">Cross-Border Growth</h3>
+            <p data-i18n="c3.body">We guide established companies into new markets, including the United States, Brazil, French Guiana and the CARICOM states. That covers regulatory, commercial and operational entry planning.</p>
             <ul>
-              <li>Market entry &amp; feasibility studies</li>
-              <li>Regulatory and partner navigation</li>
-              <li>Localized positioning &amp; operations</li>
+              <li data-i18n="c3.l1">Market entry &amp; feasibility studies</li>
+              <li data-i18n="c3.l2">Regulatory and partner navigation</li>
+              <li data-i18n="c3.l3">Localized positioning &amp; operations</li>
             </ul>
           </article>
         </div>
@@ -159,50 +170,50 @@
     <section class="section" id="services">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow reveal">Our Practices</p>
-          <h2 class="section__title reveal">Eight practices.<br>One integrated approach.</h2>
-          <p class="section__lead reveal">Our specialists work across disciplines, so strategy, technology, finance and people move forward together rather than in silos.</p>
+          <p class="eyebrow reveal" data-i18n="services.eyebrow">Our Practices</p>
+          <h2 class="section__title reveal" data-i18n="services.title">Eight practices.<br>One integrated approach.</h2>
+          <p class="section__lead reveal" data-i18n="services.lead">Our specialists work across disciplines, so strategy, technology, finance and people move forward together rather than in silos.</p>
         </div>
         <div class="services">
           <article class="service reveal">
             <div class="service__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-            <h3>Business Strategy</h3>
-            <p>Corporate planning, growth roadmaps and competitive positioning.</p>
+            <h3 data-i18n="s1.title">Business Strategy</h3>
+            <p data-i18n="s1.body">Corporate planning, growth roadmaps and competitive positioning.</p>
           </article>
           <article class="service reveal">
             <div class="service__icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8l3 3-3 3M13 14h4"/></svg></div>
-            <h3>IT Consulting</h3>
-            <p>Tech infrastructure, digital transformation and IT architecture.</p>
+            <h3 data-i18n="s2.title">IT Consulting</h3>
+            <p data-i18n="s2.body">Tech infrastructure, digital transformation and IT architecture.</p>
           </article>
           <article class="service reveal">
             <div class="service__icon"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/><path d="M12 7v5M5 17v-3h14v3"/></svg></div>
-            <h3>Organized Development</h3>
-            <p>Organizational structure, scalability systems and growth alignment.</p>
+            <h3 data-i18n="s3.title">Organized Development</h3>
+            <p data-i18n="s3.body">Organizational structure, scalability systems and growth alignment.</p>
           </article>
           <article class="service reveal">
             <div class="service__icon"><svg viewBox="0 0 24 24"><path d="M3 11l18-8v18l-18-8z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div>
-            <h3>Marketing &amp; Branding</h3>
-            <p>Positioning, market analysis, brand identity and growth marketing.</p>
+            <h3 data-i18n="s4.title">Marketing &amp; Branding</h3>
+            <p data-i18n="s4.body">Positioning, market analysis, brand identity and growth marketing.</p>
           </article>
           <article class="service reveal">
             <div class="service__icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></div>
-            <h3>Financial Consulting</h3>
-            <p>Capital optimization, financial strategy and risk management.</p>
+            <h3 data-i18n="s5.title">Financial Consulting</h3>
+            <p data-i18n="s5.body">Capital optimization, financial strategy and risk management.</p>
           </article>
           <article class="service reveal">
             <div class="service__icon"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/><path d="M8 12l3 3 5-5"/></svg></div>
-            <h3>Process Improvement</h3>
-            <p>Lean operations, workflow optimization and efficiency.</p>
+            <h3 data-i18n="s6.title">Process Improvement</h3>
+            <p data-i18n="s6.body">Lean operations, workflow optimization and efficiency.</p>
           </article>
           <article class="service reveal">
             <div class="service__icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <h3>Human Resources</h3>
-            <p>Talent management, organizational culture and leadership development.</p>
+            <h3 data-i18n="s7.title">Human Resources</h3>
+            <p data-i18n="s7.body">Talent management, organizational culture and leadership development.</p>
           </article>
           <article class="service reveal">
             <div class="service__icon"><svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/><path d="M12 13v5M10 15l2-2 2 2"/></svg></div>
-            <h3>Cloud Consulting</h3>
-            <p>Cloud migration, cloud architecture and secure infrastructure.</p>
+            <h3 data-i18n="s8.title">Cloud Consulting</h3>
+            <p data-i18n="s8.body">Cloud migration, cloud architecture and secure infrastructure.</p>
           </article>
         </div>
       </div>
@@ -212,20 +223,20 @@
     <section class="section section--alt" id="reach">
       <div class="container reach">
         <div class="reach__copy">
-          <p class="eyebrow reveal">Regional Reach</p>
-          <h2 class="section__title reveal">Rooted in CARICOM.<br>Connected to the Americas.</h2>
-          <p class="section__lead reveal">
+          <p class="eyebrow reveal" data-i18n="nav.reach">Regional Reach</p>
+          <h2 class="section__title reveal" data-i18n="reach.title">Rooted in CARICOM.<br>Connected to the Americas.</h2>
+          <p class="section__lead reveal" data-i18n="reach.lead">
             CARICOM businesses are our primary focus. From our base in Paramaribo, we connect regional companies to the trade corridors
             that matter most: Guyana&rsquo;s fast-growing economy, the Brazilian market, the EU gateway of French Guiana, and the United States.
           </p>
           <ul class="corridors reveal">
-            <li><strong>CARICOM Integration</strong><span>Market access and regional partnerships across the member islands and states.</span></li>
-            <li><strong>South American Corridor</strong><span>Suriname, Guyana, French Guiana and Brazil, with cross-border trade and operations.</span></li>
-            <li><strong>US Trade Corridor</strong><span>Entry, compliance and commercial expansion into the United States.</span></li>
+            <li><strong data-i18n="r1.title">CARICOM Integration</strong><span data-i18n="r1.body">Market access and regional partnerships across the member islands and states.</span></li>
+            <li><strong data-i18n="r2.title">South American Corridor</strong><span data-i18n="r2.body">Suriname, Guyana, French Guiana and Brazil, with cross-border trade and operations.</span></li>
+            <li><strong data-i18n="r3.title">US Trade Corridor</strong><span data-i18n="r3.body">Entry, compliance and commercial expansion into the United States.</span></li>
           </ul>
         </div>
-        <div class="reach__map reveal" aria-label="DPA Consultancy markets: Suriname headquarters connected to Guyana, French Guiana, Brazil, CARICOM states and the United States">
-          <svg viewBox="0 0 420 420" class="map" role="img" aria-hidden="true">
+        <div class="reach__map reveal">
+          <svg viewBox="0 0 420 420" class="map" aria-hidden="true">
             <defs>
               <radialGradient id="hubGlow"><stop offset="0" stop-color="#d4b87a" stop-opacity=".45"/><stop offset="1" stop-color="#d4b87a" stop-opacity="0"/></radialGradient>
             </defs>
@@ -239,12 +250,12 @@
               <path d="M210 220 Q 230 300 250 360"/>
             </g>
             <circle cx="210" cy="220" r="60" fill="url(#hubGlow)"/>
-            <g class="map__node"><circle cx="150" cy="60" r="7"/><text x="150" y="38">United States</text></g>
-            <g class="map__node"><circle cx="330" cy="95" r="7"/><text x="330" y="73">CARICOM States</text></g>
+            <g class="map__node"><circle cx="150" cy="60" r="7"/><text x="150" y="38" data-i18n="map.us">United States</text></g>
+            <g class="map__node"><circle cx="330" cy="95" r="7"/><text x="330" y="73" data-i18n="map.caricom">CARICOM States</text></g>
             <g class="map__node"><circle cx="80" cy="200" r="7"/><text x="80" y="178">Guyana</text></g>
-            <g class="map__node"><circle cx="340" cy="230" r="7"/><text x="340" y="208">French Guiana</text></g>
-            <g class="map__node"><circle cx="250" cy="360" r="7"/><text x="250" y="390">Brazil</text></g>
-            <g class="map__hub"><circle cx="210" cy="220" r="12"/><text x="210" y="256">Suriname</text><text x="210" y="272" class="map__hq">HEADQUARTERS</text></g>
+            <g class="map__node"><circle cx="340" cy="230" r="7"/><text x="340" y="208" data-i18n="map.fg">French Guiana</text></g>
+            <g class="map__node"><circle cx="250" cy="360" r="7"/><text x="250" y="390" data-i18n="map.br">Brazil</text></g>
+            <g class="map__hub"><circle cx="210" cy="220" r="12"/><text x="210" y="256">Suriname</text><text x="210" y="272" class="map__hq" data-i18n="map.hq">HEADQUARTERS</text></g>
           </svg>
         </div>
       </div>
@@ -254,9 +265,9 @@
     <section class="section contact-section" id="contact">
       <div class="container contact">
         <div class="contact__intro">
-          <p class="eyebrow reveal">Book a Consultation</p>
-          <h2 class="section__title reveal">Start with a conversation.</h2>
-          <p class="section__lead reveal">
+          <p class="eyebrow reveal" data-i18n="cta.book">Book a Consultation</p>
+          <h2 class="section__title reveal" data-i18n="contact.title">Start with a conversation.</h2>
+          <p class="section__lead reveal" data-i18n="contact.lead">
             Tell us about your business and what you want to achieve. Our team will contact you to schedule your initial advisory call.
           </p>
           <a class="contact__email reveal" href="mailto:dpaconsultancy.tjon@gmail.com">
@@ -264,9 +275,9 @@
             dpaconsultancy.tjon@gmail.com
           </a>
           <ol class="steps reveal">
-            <li><span>1</span><div><strong>Submit your request</strong>Share your goals and preferred timing.</div></li>
-            <li><span>2</span><div><strong>Initial advisory call</strong>A focused conversation about your situation and goals.</div></li>
-            <li><span>3</span><div><strong>Tailored proposal</strong>A clear plan of action with scope and timeline.</div></li>
+            <li><span>1</span><div><strong data-i18n="step1.title">Submit your request</strong><span data-i18n="step1.body">Share your goals and preferred timing.</span></div></li>
+            <li><span>2</span><div><strong data-i18n="step2.title">Initial advisory call</strong><span data-i18n="step2.body">A focused conversation about your situation and goals.</span></div></li>
+            <li><span>3</span><div><strong data-i18n="step3.title">Tailored proposal</strong><span data-i18n="step3.body">A clear plan of action with scope and timeline.</span></div></li>
           </ol>
         </div>
 
@@ -274,96 +285,96 @@
               data-endpoint="https://formsubmit.co/ajax/dpaconsultancy.tjon@gmail.com">
           <div class="form__row">
             <label class="field">
-              <span>Full name <em>*</em></span>
+              <span><span data-i18n="f.name">Full name</span> <em>*</em></span>
               <input type="text" name="name" autocomplete="name" required>
             </label>
             <label class="field">
-              <span>Company <em>*</em></span>
+              <span><span data-i18n="f.company">Company</span> <em>*</em></span>
               <input type="text" name="company" autocomplete="organization" required>
             </label>
           </div>
           <div class="form__row">
             <label class="field">
-              <span>Business email <em>*</em></span>
+              <span><span data-i18n="f.email">Business email</span> <em>*</em></span>
               <input type="email" name="email" autocomplete="email" required>
             </label>
             <label class="field">
-              <span>Phone / WhatsApp</span>
+              <span data-i18n="f.phone">Phone / WhatsApp</span>
               <input type="tel" name="phone" autocomplete="tel" placeholder="+597 …">
             </label>
           </div>
           <div class="form__row">
             <label class="field">
-              <span>Country <em>*</em></span>
+              <span><span data-i18n="f.country">Country</span> <em>*</em></span>
               <select name="country" required>
-                <option value="" disabled selected>Select country</option>
-                <option>Suriname</option>
-                <option>Guyana</option>
-                <option>French Guiana</option>
-                <option>Brazil</option>
-                <option>Trinidad and Tobago</option>
-                <option>Jamaica</option>
-                <option>Barbados</option>
-                <option>Other CARICOM member state</option>
-                <option>United States</option>
-                <option>Other</option>
+                <option value="" disabled selected data-i18n="f.country.ph">Select country</option>
+                <option value="Suriname">Suriname</option>
+                <option value="Guyana">Guyana</option>
+                <option value="French Guiana" data-i18n="map.fg">French Guiana</option>
+                <option value="Brazil" data-i18n="map.br">Brazil</option>
+                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                <option value="Jamaica">Jamaica</option>
+                <option value="Barbados">Barbados</option>
+                <option value="Other CARICOM member state" data-i18n="f.country.caricom">Other CARICOM member state</option>
+                <option value="United States" data-i18n="map.us">United States</option>
+                <option value="Other" data-i18n="f.other">Other</option>
               </select>
             </label>
             <label class="field">
-              <span>Your business stage <em>*</em></span>
+              <span><span data-i18n="f.stage">Your business stage</span> <em>*</em></span>
               <select name="stage" required>
-                <option value="" disabled selected>Select one</option>
-                <option>Startup / new venture</option>
-                <option>Established, facing challenges</option>
-                <option>Expanding into new markets</option>
-                <option>Other</option>
+                <option value="" disabled selected data-i18n="f.stage.ph">Select one</option>
+                <option value="Startup / new venture" data-i18n="f.stage.1">Startup / new venture</option>
+                <option value="Established, facing challenges" data-i18n="f.stage.2">Established, facing challenges</option>
+                <option value="Expanding into new markets" data-i18n="f.stage.3">Expanding into new markets</option>
+                <option value="Other" data-i18n="f.other">Other</option>
               </select>
             </label>
           </div>
 
           <fieldset class="field chips">
-            <legend>Areas of interest</legend>
+            <legend data-i18n="f.interests">Areas of interest</legend>
             <div class="chips__list">
-              <label><input type="checkbox" name="interests" value="Business Strategy"><span>Business Strategy</span></label>
-              <label><input type="checkbox" name="interests" value="IT Consulting"><span>IT Consulting</span></label>
-              <label><input type="checkbox" name="interests" value="Organized Development"><span>Organized Development</span></label>
-              <label><input type="checkbox" name="interests" value="Marketing & Branding"><span>Marketing &amp; Branding</span></label>
-              <label><input type="checkbox" name="interests" value="Financial Consulting"><span>Financial Consulting</span></label>
-              <label><input type="checkbox" name="interests" value="Process Improvement"><span>Process Improvement</span></label>
-              <label><input type="checkbox" name="interests" value="Human Resources"><span>Human Resources</span></label>
-              <label><input type="checkbox" name="interests" value="Cloud Consulting"><span>Cloud Consulting</span></label>
+              <label><input type="checkbox" name="interests" value="Business Strategy"><span data-i18n="s1.title">Business Strategy</span></label>
+              <label><input type="checkbox" name="interests" value="IT Consulting"><span data-i18n="s2.title">IT Consulting</span></label>
+              <label><input type="checkbox" name="interests" value="Organized Development"><span data-i18n="s3.title">Organized Development</span></label>
+              <label><input type="checkbox" name="interests" value="Marketing & Branding"><span data-i18n="s4.title">Marketing &amp; Branding</span></label>
+              <label><input type="checkbox" name="interests" value="Financial Consulting"><span data-i18n="s5.title">Financial Consulting</span></label>
+              <label><input type="checkbox" name="interests" value="Process Improvement"><span data-i18n="s6.title">Process Improvement</span></label>
+              <label><input type="checkbox" name="interests" value="Human Resources"><span data-i18n="s7.title">Human Resources</span></label>
+              <label><input type="checkbox" name="interests" value="Cloud Consulting"><span data-i18n="s8.title">Cloud Consulting</span></label>
             </div>
           </fieldset>
 
           <div class="form__row">
             <label class="field">
-              <span>Preferred date</span>
+              <span data-i18n="f.date">Preferred date</span>
               <input type="date" name="preferred_date" id="preferredDate">
             </label>
             <label class="field">
-              <span>Preferred time</span>
+              <span data-i18n="f.time">Preferred time</span>
               <select name="preferred_time">
-                <option value="">No preference</option>
-                <option>Morning (9:00 – 12:00)</option>
-                <option>Afternoon (12:00 – 17:00)</option>
+                <option value="" data-i18n="f.time.none">No preference</option>
+                <option value="Morning (9:00 – 12:00)" data-i18n="f.time.am">Morning (9:00 – 12:00)</option>
+                <option value="Afternoon (12:00 – 17:00)" data-i18n="f.time.pm">Afternoon (12:00 – 17:00)</option>
               </select>
             </label>
           </div>
 
           <label class="field">
-            <span>How can we help? <em>*</em></span>
-            <textarea name="message" rows="4" required placeholder="Briefly describe your business and the challenge or opportunity you are facing."></textarea>
+            <span><span data-i18n="f.message">How can we help?</span> <em>*</em></span>
+            <textarea name="message" rows="4" required data-i18n-placeholder="f.message.ph" placeholder="Briefly describe your business and the challenge or opportunity you are facing."></textarea>
           </label>
 
           <!-- honeypot -->
           <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
 
           <button type="submit" class="btn btn--gold btn--lg btn--block" id="submitBtn">
-            Request Consultation
+            <span id="submitLabel" data-i18n="f.submit">Request Consultation</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
           <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
-          <p class="form__note">Your information is kept confidential and used only to respond to your request.</p>
+          <p class="form__note" data-i18n="f.note">Your information is kept confidential and used only to respond to your request.</p>
         </form>
       </div>
     </section>
@@ -380,28 +391,28 @@
       </div>
       <div class="footer__cols">
         <div>
-          <h4>Company</h4>
-          <a href="#about">About</a>
-          <a href="#clients">Who We Serve</a>
-          <a href="#reach">Regional Reach</a>
+          <h4 data-i18n="footer.company">Company</h4>
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#clients" data-i18n="nav.clients">Who We Serve</a>
+          <a href="#reach" data-i18n="nav.reach">Regional Reach</a>
         </div>
         <div>
-          <h4>Practices</h4>
-          <a href="#services">Strategy &amp; Finance</a>
-          <a href="#services">Technology &amp; Cloud</a>
-          <a href="#services">People &amp; Operations</a>
+          <h4 data-i18n="footer.practices">Practices</h4>
+          <a href="#services" data-i18n="footer.p1">Strategy &amp; Finance</a>
+          <a href="#services" data-i18n="footer.p2">Technology &amp; Cloud</a>
+          <a href="#services" data-i18n="footer.p3">People &amp; Operations</a>
         </div>
         <div>
           <h4>Contact</h4>
           <a href="mailto:dpaconsultancy.tjon@gmail.com">dpaconsultancy.tjon@gmail.com</a>
           <p>Paramaribo, Suriname</p>
-          <p>Serving CARICOM, South America &amp; the US</p>
+          <p data-i18n="footer.serving">Serving CARICOM, South America &amp; the US</p>
         </div>
       </div>
     </div>
     <div class="container footer__bottom">
-      <p>&copy; <span id="year">2026</span> DPA Consultancy. All rights reserved.</p>
-      <a href="#contact">Book a Consultation &rarr;</a>
+      <p>&copy; <span id="year">2026</span> DPA Consultancy. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <a href="#contact"><span data-i18n="cta.book">Book a Consultation</span> &rarr;</a>
     </div>
   </footer>
 
